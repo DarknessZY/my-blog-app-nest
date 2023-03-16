@@ -23,7 +23,7 @@ import { UserModule } from './modules/user/user.module';
           port: configService.get<number>('DB_PORT', 3306), // 端口号
           username: configService.get('DB_USER', 'root'),   // 用户名
           password: configService.get('DB_PASSWORD', '123456'), // 密码
-          database: configService.get('DB_DATABASE', 'myBlog'), //数据库名
+          database: configService.get('DB_DATABASE', 'myblog'), //数据库名
           timezone: '+08:00', //服务器上配置的时区
           synchronize: false, //根据实体自动创建数据库表， 生产环境建议关闭
           autoLoadEntities: true,
