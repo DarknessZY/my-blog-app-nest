@@ -1,7 +1,7 @@
 import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { encryptPassword, makeSalt } from 'utils/cryptogram';
+import { encryptPassword, makeSalt } from '../../../utils/cryptogram';
 import { RegisterDTO , LoginInfoDTO} from './user.dto';
 import { UserEntity} from './user.entity'
 import { JwtService } from '@nestjs/jwt';
