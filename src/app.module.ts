@@ -3,15 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService, ConfigModule } from '@nestjs/config';
-import envConfig from '../config/env';
 import { UserEntity } from './modules/user/user.entity';
 import { UserModule } from './modules/user/user.module';
-
+import envConfig from '../config/env';
 @Module({
   imports: [
     ConfigModule.forRoot({ 
-      isGlobal: true,  // 设置为全局
-      envFilePath: [envConfig.path] 
+      ignoreEnvFile: false, // 忽视默认读取.env的文件配置
+      isGlobal: true, // 全局注入
+      envFilePath: [envConfig.path] , // 加载配置文件
      }),
       TypeOrmModule.forRootAsync({
         imports: [ConfigModule],

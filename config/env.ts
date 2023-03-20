@@ -1,16 +1,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
 const isProd = process.env.NODE_ENV === 'production';
+import { Logger } from '@nestjs/common';
 
 function parseEnv() {
   const localEnv = path.resolve('.env');
-  const prodEnv = path.resolve('.env.prod');
-
-  if (!fs.existsSync(localEnv) && !fs.existsSync(prodEnv)) {
-    throw new Error('缺少环境配置文件');
-  }
-
-  const filePath = isProd && fs.existsSync(prodEnv) ? prodEnv : localEnv;
+  const devEnv = path.resolve('.env.dev');
+  Logger.log(`localEnv6666${fs.existsSync(localEnv)}`)
+  const filePath = isProd && fs.existsSync(devEnv) ? devEnv : localEnv;
+  Logger.log(`filePath:${filePath}`)
   return { path:filePath };
 }
 export default parseEnv();

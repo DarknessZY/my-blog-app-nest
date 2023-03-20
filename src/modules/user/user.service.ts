@@ -1,4 +1,4 @@
-import { BadRequestException, HttpException, Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { encryptPassword, makeSalt } from '../../../utils/cryptogram';
@@ -50,6 +50,7 @@ export class UserService {
         .addSelect('user.password')
         .where('user.mobile = :mobile', { mobile })
         .getOne()
+        Logger.log(`user6666:${user.mobile}`)
       if (!user) {
         throw new BadRequestException('用户名不正确！');
       }
