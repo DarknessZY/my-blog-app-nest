@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import { UserEntity } from './modules/user/user.entity';
 import { UserModule } from './modules/user/user.module';
+import { EventsGateway } from './events/events.gateway';
 import envConfig from '../config/env';
 @Module({
   imports: [
@@ -32,6 +33,6 @@ import envConfig from '../config/env';
       UserModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EventsGateway],
 })
 export class AppModule {}

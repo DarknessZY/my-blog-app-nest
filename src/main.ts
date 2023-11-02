@@ -28,7 +28,7 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
 
   await app.listen(PORT, () => {
-    logger.log(`服务已经启动,接口请访问:http://wwww.localhost:${PORT}/${PREFIX}`);
+    logger.log(`服务已经启动,接口请访问:http://localhost:${PORT}/${PREFIX}`);
   });
 }
 bootstrap();
