@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import { UserEntity } from './modules/user/user.entity';
 import { UserModule } from './modules/user/user.module';
+import { UploadModule } from './modules/upload/upload.module'
+import { Image } from './modules/upload/upload.entity'
 import { EventsGateway } from './events/events.gateway';
 import envConfig from '../config/env';
 @Module({
@@ -19,7 +21,7 @@ import envConfig from '../config/env';
         inject: [ConfigService],
         useFactory: async (configService: ConfigService) => ({
           type: 'mysql', // 数据库类型
-          entities: [UserEntity],  // 数据表实体
+          entities: [UserEntity,Image],  // 数据表实体
           host: configService.get('DB_HOST', 'localhost'), // 主机，默认为localhost
           port: configService.get<number>('DB_PORT', 3306), // 端口号
           username: configService.get('DB_USER', 'root'),   // 用户名
@@ -31,6 +33,7 @@ import envConfig from '../config/env';
         }),
       }),
       UserModule,
+      UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService, EventsGateway],

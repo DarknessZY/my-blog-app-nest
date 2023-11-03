@@ -1,6 +1,5 @@
 // 用户实体类
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Exclude } from 'class-transformer';
 
 @Entity('User')
 export class UserEntity {
