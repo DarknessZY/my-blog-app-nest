@@ -15,8 +15,8 @@ export class UploadService {
     private imageRepository: Repository<Image>,
   ) {
     this.cos = new COS({
-      SecretId: 'AKIDwnSvCSYUfjfOxMZwHSSXSBtTvELNFwSj',
-      SecretKey: 'CMNCtPlwwlOrnp9VzUsQwHTTIxTo03yh',
+      SecretId: '你的SecretId',
+      SecretKey: '你的SecretKey',
     });
   }
 
