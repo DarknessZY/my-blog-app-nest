@@ -5,7 +5,7 @@ import { TransformInterceptor } from './core/interceptor/transform/transform.int
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Logger } from '@nestjs/common';
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3080;
 const PREFIX = process.env.PREFIX || '/api';
 Logger.log(`PREFIX:${PREFIX}`)
 async function bootstrap() {
