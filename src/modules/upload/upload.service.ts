@@ -19,6 +19,19 @@ export class UploadService {
       SecretKey: '你的SecretKey',
     });
   }
+  // async uploadFiles(uploadDto: UploadDto, files: File[]): Promise<Image[]> {
+  //   const images = [];
+  //   for (const file of files) {
+  //     const image = new Image();
+  //     image.filename = uploadDto.filename;
+  //     image.mimetype = file.mimetype;
+  //     image.size = uploadDto.size;
+  //     image.imgurl = await this.uploadToCos(file)
+  //     images.push(image);
+  //   }
+  //   this.imageRepository.save(images);
+  //   return images
+  // }
 
   async uploadFile(uploadDto: UploadDto, file: File): Promise<Image> {
     const image = new Image();
