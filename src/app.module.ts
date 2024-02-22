@@ -7,7 +7,8 @@ import { UserEntity } from './modules/user/user.entity';
 import { UserModule } from './modules/user/user.module';
 import { UploadModule } from './modules/upload/upload.module'
 import { Image } from './modules/upload/upload.entity'
-import { EventsGateway } from './events/events.gateway';
+import { EventGateway } from './events/events.gateway';
+// import { ChatModule } from './modules/chat/chat.module';
 import envConfig from '../config/env';
 @Module({
   imports: [
@@ -28,7 +29,7 @@ import envConfig from '../config/env';
           password: configService.get('DB_PASSWORD', '123456'), // 密码
           database: configService.get('DB_DATABASE', 'myblog'), //数据库名
           timezone: '+08:00', //服务器上配置的时区
-          synchronize: true, //根据实体自动创建数据库表， 生产环境建议关闭
+          synchronize: false, //根据实体自动创建数据库表， 生产环境建议关闭
           autoLoadEntities: true,
         }),
       }),
@@ -36,6 +37,6 @@ import envConfig from '../config/env';
       UploadModule,
   ],
   controllers: [AppController],
-  providers: [AppService, EventsGateway],
+  providers: [AppService, EventGateway],
 })
 export class AppModule {}
